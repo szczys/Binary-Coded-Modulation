@@ -9,8 +9,7 @@ void calcBCM(void) {
   for (unsigned char i=0; i<8; i++){ //Cycle though each bit of each pwmValues
     unsigned char tempValue = 0;
     for (unsigned char j=0; j<8; j++){
-      tempValue >>= 1; //Shift right so as not to overwrite the last bit
-      if (pwmValues[j] & (1<<i)) tempValue |= (1<<7); //Always set MSB because we're shifting right
+      if (pwmValues[j] & (1<<i)) tempValue |= (1<<j); //Always set MSB because we're shifting right
     }
     bcmBuffer[i] = tempValue;  
   }
